@@ -52,8 +52,29 @@ namespace BackUp
         {
             Console.SetCursorPosition(0, 10);
             Console.WriteLine("Flash:");
-            Console.Write("In");
-            //Flash temp = new Flash()
+
+            Console.Write("Input name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Input model: ");
+            string model = Console.ReadLine();
+
+            Console.WriteLine("Select USB type");
+            Console.WriteLine("1. USB 2.0");
+            Console.WriteLine("2. USB 3.0");
+            var key = Console.ReadKey(true).Key;
+            char type;
+
+            if (key == ConsoleKey.D1)
+                type = '2';
+            else
+                type = '3';
+
+            Console.Write("Input size: ");
+            double capacity = Convert.ToDouble(Console.ReadLine());
+
+            Flash temp = new Flash(type, capacity, name, model);
+            st.Add(temp);
         }
 
         static void CreateDVD()
