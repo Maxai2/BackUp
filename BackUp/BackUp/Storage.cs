@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+//-----------------------------------------------------------------------------------
 namespace BackUp
 {
     abstract class Storage
     {
-        string name;
-        string model;
-        double capacity;
+        protected string name;
+        protected string model;
+
+        protected Storage(string name, string model)
+        {
+            this.name = name;
+            this.model = model;
+        }
 
         string Name
         {
@@ -24,30 +29,13 @@ namespace BackUp
             set { model = value; }
         }
 
-        bool Copy()
-        {
+        public abstract double GetCapacity();
 
-        }
+        //public abstract void Copy();
 
-        double Capacity
-        {
-            get { return capacity; }
-            set
-            {
-                if (value >= 0)
-                capacity = value;
-            }
-        }
+        //public abstract void GetFreeSize();
 
-        string[] Information()
-        {
-            string[] temp = new string[3];
-
-            temp[0] = name;
-            temp[1] = model;
-            temp[2] = capacity.ToString();
-
-            return temp;
-        }
+        //public abstract void GetInformation();
     }
 }
+//-----------------------------------------------------------------------------------
