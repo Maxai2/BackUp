@@ -17,7 +17,7 @@ namespace BackUp
             this.model = model;
         }
 
-        string Name
+        string Name 
         {
             get { return name; }
             set { name = value; }
