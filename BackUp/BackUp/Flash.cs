@@ -10,14 +10,14 @@ namespace BackUp
     {
         double speed;
         double capacity;
-
+ 
         public Flash(char type, double capacity, string name, string model) : base(name, model)
         {
             if (type == '2')
-                speed = 0.48;
+                speed = 480;
             else
             if (type == '3')
-                speed = 5;
+                speed = 5000;
 
             this.capacity = capacity;
         }

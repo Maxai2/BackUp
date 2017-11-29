@@ -31,7 +31,7 @@ namespace BackUp
 
         public abstract double GetCapacity();
 
-        //public abstract void Copy();
+        //public abstract void Copy(); 
 
         //public abstract void GetFreeSize();
 

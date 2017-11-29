@@ -12,16 +12,21 @@ namespace BackUp
         double WriteSpeed;
         double capacity;
 
-        public DVD(double ReadSpeed, double WriteSpeed, char type, string name, string model) : base(name, model)
-        {
-            this.ReadSpeed = ReadSpeed;
-            this.WriteSpeed = WriteSpeed;
+        public DVD(char type, string name, string model) : base(name, model)
+        { 
+			WriteSpeed = 9.8;
 
-            if (type == 'o')
-                capacity = 4.7;
-            else
-            if (type == 't')
+			if (type == 'o')
+			{
+				capacity = 4.7;
+				ReadSpeed = 11.08;
+			}
+			else
+			if (type == 't')
+			{ 
                 capacity = 9;
+				ReadSpeed = 10.08;
+			}
         }
 
         public override double GetCapacity() { return capacity; }
