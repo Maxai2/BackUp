@@ -117,7 +117,6 @@ namespace BackUp
 				Console.WriteLine($"One Side DVD");
 				Console.ForegroundColor = ConsoleColor.Gray;
 				Console.WriteLine("Size:        4.7Gb");
-				Console.WriteLine("Read Spead:  11.08x");
 				Console.WriteLine("Write Spead: 9.8x");
 			}
 			else
@@ -127,7 +126,6 @@ namespace BackUp
 				Console.WriteLine($"Two Side DVD");
 				Console.ForegroundColor = ConsoleColor.Gray;
 				Console.WriteLine("Size:        9Gb");
-				Console.WriteLine("Read Spead:  10.08x");
 				Console.WriteLine("Write Spead: 9.8x");
 			}
 
@@ -135,7 +133,7 @@ namespace BackUp
 			st.Add(temp);
 			Console.CursorVisible = false;
 			Console.SetCursorPosition(0, 10);
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < 9; i++)
 				Console.WriteLine("								");
 		}
 		//-----------------------------------------------------------------------------------
@@ -175,13 +173,21 @@ namespace BackUp
 
             return size;
         }
-		//-----------------------------------------------------------------------------------
-		//static string GetTime()
-		//{ 
-			
-		//}
-		//-----------------------------------------------------------------------------------
-		static void Main(string[] args)
+        //-----------------------------------------------------------------------------------
+        static TimeSpan GetTotalTime()
+        {
+            int time = 0;
+            TimeSpan temp;
+
+            for (int i = 0; i < st.Count; i++)
+                time += st[i].GetTime();
+
+            temp = TimeSpan.FromSeconds(time); 
+
+            return temp;
+        }
+        //-----------------------------------------------------------------------------------
+        static void Main(string[] args)
         {
             int select = 0;
             double TotalSize;
@@ -207,7 +213,7 @@ namespace BackUp
                 MenuOfStorage(select);
 
                 Console.Write("Capacity: ");
-                if (Capacity() < TotalSize)
+                if (Capacity() < (TotalSize * 1000))
                     Console.ForegroundColor = ConsoleColor.Red;
                 else
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -245,7 +251,7 @@ namespace BackUp
 
 			Console.WriteLine($"Total size: ");
 
-			if (Capacity() < TotalSize)
+			if (Capacity() < (TotalSize * 1000))
 				Console.ForegroundColor = ConsoleColor.Red;
 			else
 				Console.ForegroundColor = ConsoleColor.Green;
@@ -254,7 +260,8 @@ namespace BackUp
 
 			Console.WriteLine();
 
-			
+            Console.WriteLine($"Copy by: {GetTotalTime()}");
+
             //while (true)
             //{
             //   Menu(select);

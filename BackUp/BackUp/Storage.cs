@@ -30,6 +30,8 @@ namespace BackUp
         }
 
         public abstract double GetCapacity();
+        public abstract double GetSpeed();
+        public abstract int GetTime();
 
         //public abstract void Copy(); 
 

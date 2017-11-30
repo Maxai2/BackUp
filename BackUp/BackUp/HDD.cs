@@ -20,6 +20,13 @@ namespace BackUp
         }
 
         public override double GetCapacity() { return (countOfSection * capacityOfSection); }
+        public override double GetSpeed() {  return speed; }
+        public override int GetTime()
+        {
+            double doubleTemp = (countOfSection * capacityOfSection) / speed;
+            int temp = Convert.ToInt32(Math.Round(doubleTemp));
+            return temp;
+        }
     }
 }
 //-----------------------------------------------------------------------------------

@@ -19,12 +19,17 @@ namespace BackUp
             if (type == '3')
                 speed = 5000;
 
-            this.capacity = capacity;
+            this.capacity = capacity * 1000;
         }
 
-        public double Speed { get { return speed; } }
-
+        public override double GetSpeed() { return speed; } 
         public override double GetCapacity() { return capacity; }
+        public override int GetTime()
+        {
+            double doubleTemp = capacity / speed;
+            int temp = Convert.ToInt32(Math.Round(doubleTemp));
+            return temp;
+        }
     }
 }
 //-----------------------------------------------------------------------------------
