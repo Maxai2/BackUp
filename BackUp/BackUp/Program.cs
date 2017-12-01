@@ -262,6 +262,9 @@ namespace BackUp
 
             Console.WriteLine($"Copy by: {GetTotalTime()}");
 
+            if (st.Count < 1)
+                Console.WriteLine("");
+
             //while (true)
             //{
             //   Menu(select);
